@@ -1,26 +1,22 @@
+@import "https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap";
 @import "tailwindcss";
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FCF9F4;
+  --dark-green: #022818;
+  --dark-gold: #C18B21;
+  --bright-blue: #4069FA;
+  --title-font: "Tinos", serif;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark-green);
+  font-family: "Tinos", serif;
 }
+
+nextjs-portal {
+  display: none !important;
+}
+
