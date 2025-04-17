@@ -11,13 +11,13 @@ export default function Home() {
     // flex and flex-col props to set flex direction to column
     <div className="min-h-screen flex flex-col p-8">
       <header> 
-        <h1 className="text-[64px]/12 font-black">{title}</h1>
+        <h1 className="sm:text-[64px] text-[40px] leading-[1.2] font-black">{title}</h1>
         <hr className="text-(--bright-blue) border-2"></hr>
       </header>
       <main className="flex items-center justify-center mt-8">
        <section>
         <div>
-          <h2 className="text-[40px]/12 text-(--dark-gold) font-black mb-2">{cardTitle}</h2>
+          <h2 className="text-[40px] leading-[1.2] text-(--dark-gold) font-black mb-2">{cardTitle}</h2>
           <h3 className="text-xl text-(--dark-green) font-bold mb-2">{cardSubtitle}</h3>
           <p className="text-sm text-(--dark-green)">{cardContent}</p>
           {cardMedia && (
