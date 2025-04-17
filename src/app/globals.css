@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap";
+
 @import "tailwindcss";
 
 
@@ -7,13 +7,16 @@
   --dark-green: #022818;
   --dark-gold: #C18B21;
   --bright-blue: #4069FA;
-  --title-font: "Tinos", serif;
 }
 
 body {
   background: var(--background);
   color: var(--dark-green);
-  font-family: "Tinos", serif;
+  font-family: var(--font-text), serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), serif;
 }
 
 nextjs-portal {
