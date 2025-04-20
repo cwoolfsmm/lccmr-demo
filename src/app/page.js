@@ -15,17 +15,19 @@ export default function Home() {
         <hr className="text-(--bright-blue) border-2"></hr>
       </header>
       <main className="flex items-center justify-center mt-8">
-       <section>
+       <section className="grid grid-cols-1 md:grid-cols-2 justify-items-center md:justify-items-start gap-8">
         <div>
           <h2 className="text-[40px] leading-[1.2] text-(--dark-gold) font-black mb-2">{cardTitle}</h2>
           <h3 className="text-xl text-(--dark-green) font-bold mb-2">{cardSubtitle}</h3>
           <p className="text-sm text-(--dark-green)">{cardContent}</p>
-          {cardMedia && (
+        </div>
+        <div>
+        {cardMedia && (
             <Image
               src={cardMedia}
               alt={cardTitle}
-              width={500}
-              height={300}
+              width={400}
+              height={400}
             />
           )}
         </div>
