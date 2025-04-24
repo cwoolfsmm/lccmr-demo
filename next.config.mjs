@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    experimental: {
-        appDir: true,
-        serverActions: true,
-        serverComponentsExternalPackages: ['mongoose'],
-    },
     images: {
         remotePatterns: [
+        {
+            protocol: 'https',
+            hostname: 'images.ctfassets.net',
+            port: '',
+            pathname: '/**',
+        },
         {
             protocol: 'https',
             hostname: 'res.cloudinary.com',

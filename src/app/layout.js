@@ -1,19 +1,4 @@
-import { DM_Serif_Display, DM_Serif_Text } from "next/font/google";
 import "./globals.css";
-
-const display = DM_Serif_Display({
-  weight: '400',
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const text = DM_Serif_Text({
-  weight: '400',
-  subsets: ["latin"],
-  variable: "--font-text",
-  display: "swap",
-});
 
 export const metadata = {
   title: "LCCMR Demo App",
@@ -26,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${display.variable} ${text.variable} antialiased`}>
+    <html lang="en" className="antialiased">
       <body
       >
         {children}

@@ -1,12 +1,29 @@
 
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./assets/fonts/SourceSerif4-VariableFont_opsz\,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Source Serif 4 Bold';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("./assets/fonts/SourceSerif4-VariableFont_opsz\,wght.ttf") format("truetype");
+}
 
 :root {
   --background: #FCF9F4;
   --dark-green: #022818;
   --dark-gold: #C18B21;
   --bright-blue: #4069FA;
+  --font-text: 'Source Serif 4', serif;
+  --font-bold: 'Source Serif 4 Bold', serif;
 }
 
 body {
@@ -16,7 +33,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display), serif;
+  font-family: var(--font-bold), serif;
+}
+
+p {
+  font-family: var(--font-text), serif;
 }
 
 nextjs-portal {
