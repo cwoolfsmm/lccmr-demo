@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { StoryCard } from "./StoryCard";
-import { StoryButton } from "./StoryButton";
+import { StoryOverlay } from "./StoryOverlay";
 
 export function HomeClient({data}) {
   const { header, story, home } = data;
@@ -13,21 +13,24 @@ export function HomeClient({data}) {
   const [selectedStory, setSelectedStory] = useState(null);
 
   const handleOpenStory = (story) => {
+    // selecting a story triggers the overlay to open
     setSelectedStory(story);
+    console.log("Selected story:", selectedStory);
   };
 
   const handleCloseStory = () => {
+    // hide overlay when story is set to null
     setSelectedStory(null);
   };
 
   return (
     // flex and flex-col props to set flex direction to column
     <div className="min-h-screen flex flex-col">
-      <header className="p-6"> 
+      <header className="pt-6 pr-6 pl-6"> 
         <h1 className="sm:text-[64px] text-[40px] leading-[1.2] font-black">{headerTitle}</h1>
         <hr className="text-(--bright-blue) border-2"></hr>
       </header>
-      <main className="grid grid-cols-1 md:grid-cols-2 flex-auto mt-8 p-6">
+      <main className="grid grid-cols-1 md:grid-cols-2 flex-auto p-6">
         <section className="grid grid-cols-1 justify-items-start pr-6 pb-6 flex-auto gap-6">
           <StoryCard
             title={title}
@@ -41,11 +44,13 @@ export function HomeClient({data}) {
           <h2 className="text-[40px] leading-[1.2] text-(--dark-gold) font-black">Stories</h2>
           <h3 className="text-xl text-(--dark-green) font-bold mb-2">Select A Story</h3>
           {story.map((story) => (
-            <StoryButton
-              key={story.title}
-              story={story}
-              onClick={() => handleOpenStory(story)}
-            />
+             <div key={story.title}> 
+              <button
+                onClick={() => handleOpenStory(story)}
+                className="text-sm font-bold mb-2 bg-(--bright-blue) hover:bg-(--dark-gold) text-white py-2 px-4 rounded">
+                {story.title}
+              </button>
+            </div>
           ))}
         </div>
        </section>
@@ -67,6 +72,13 @@ export function HomeClient({data}) {
           />
         )}
       </footer>
+      {/* Overlay for Selected Story */}
+     {selectedStory && (
+       <StoryOverlay
+         story={selectedStory}
+         onClose={handleCloseStory}
+       />
+      )}
     </div>
   );
 }
