@@ -35,8 +35,30 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-## Style Notes
+## Notes
 
-Font: Test Tiempos Fine not free so using Google Fonts Tinos
-Cream background: #FCF9F4
+### feature-overlay branch 
+
+This branch pops open a full page overlay with a story 'page' using a button. 
+It is not creating a new page or route.
+
+### feature-slug branch 
+
+This branch has the following structure: 
+
+  app >
+    assets >
+    components >
+    stories > [ slug ]
+    page.js
+    layout.js
+    globals.css
+
+ We can post the link to the page on the Home page like:
+
+ ```
+  <Link href={`/stories/${slug}`} className="hover:underline">
+    {title}
+  </Link>
+ ```
 

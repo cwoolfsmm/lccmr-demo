@@ -2,8 +2,7 @@
        import Image from "next/image";
        import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
        
-       export default async function FeaturedStory({ title, subtitle, content, storyMedia }) {
-    
+       export function StoryCard({ title, subtitle, content, storyMedia }) {
          return (
           <>
             <div className="flex flex-col justify-center">

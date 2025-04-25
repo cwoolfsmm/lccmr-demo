@@ -40,6 +40,11 @@ p {
   font-family: var(--font-text), serif;
 }
 
+footer {
+  color: white;
+  background: var(--dark-green);
+}
+
 nextjs-portal {
   display: none !important;
 }
