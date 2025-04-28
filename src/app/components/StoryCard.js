@@ -5,12 +5,12 @@
        export function StoryCard({ title, subtitle, content, storyMedia }) {
          return (
           <>
-            <div className="flex flex-col justify-center">
+            <div className="flex flex-col justify-center sm:px-2">
               <h2 className="text-[40px] leading-[1.2] text-(--dark-gold) font-black">{title}</h2>
               <h3 className="text-xl text-(--dark-green) font-bold mb-2">{subtitle}</h3>
               <div className="text-sm text-(--dark-green)"> {content && documentToReactComponents(content.json)}</div>
             </div>
-            <div>
+            <div className="flex justify-center items-center mt-4">
               {storyMedia && (
                 <Image
                   src={storyMedia}

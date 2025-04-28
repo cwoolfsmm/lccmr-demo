@@ -5,7 +5,8 @@ import { HomeClient } from "./components/HomeClient";
 export default async function Home() {
   const data = await getAllEntries();
   if (!data) {
-    return <div>Loading...</div>;
+    // Placeholder!
+    return <div>Loading...</div>; 
   }
 
   return (

@@ -18,39 +18,34 @@ export function StoryOverlay({ story, onClose }) {
 
   return (
     <div
-      className={`fixed inset-0 bg-[var(--background)] shadow-lg p-2 overflow-y-auto bg-opacity-50 flex  ${
+      className={`fixed inset-0 bg-[var(--background)] p-2 overflow-y-auto max-h-screen bg-opacity-50 ${
         story ? "block" : "hidden"
       }`}
-   >
-     <div className="mx-auto rounded-sm"
-      style={{
-          width: "100%",
-          height: "100%"
-        }}
       >
-        <button
+      <div div className="p-2">
+         <button
           onClick={onClose}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+          className="mt-2 px-2 py-2 bg-blue-500 text-white rounded"
         >
           Go back
         </button>
-        <div className="grid grid-cols-1 md:grid-cols-2">
-         <div className="pb-8">
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr]">
+         <div className="p-2 max-h-[25vh] w-full h-full">
            <StoryCard
             title={title}
             subtitle={subtitle}
             content={content}
-            storyMedia={mediaCollection.items[0].url}
+            storyMedia={null}
            />
          </div>
-         <div className="pb-8">
+         <div className="p-2 w-full aspect-ratio md:max-h-[50vh]">
           <StoryVideo
             title={title}
             storyLink={storyLink}
             />
          </div>
         </div>
-      </div>
     </div>
   );
 }

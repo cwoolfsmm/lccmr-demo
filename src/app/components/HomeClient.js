@@ -13,13 +13,10 @@ export function HomeClient({data}) {
   const [selectedStory, setSelectedStory] = useState(null);
 
   const handleOpenStory = (story) => {
-    // selecting a story triggers the overlay to open
     setSelectedStory(story);
-    console.log("Selected story:", selectedStory);
   };
 
   const handleCloseStory = () => {
-    // hide overlay when story is set to null
     setSelectedStory(null);
   };
 
@@ -31,7 +28,7 @@ export function HomeClient({data}) {
         <hr className="text-(--bright-blue) border-2"></hr>
       </header>
       <main className="grid grid-cols-1 md:grid-cols-2 flex-auto p-6">
-        <section className="grid grid-cols-1 justify-items-start pr-6 pb-6 flex-auto gap-6">
+        <section className="grid grid-cols-1 p-2 flex-auto gap-6">
           <StoryCard
             title={title}
             subtitle={subtitle}
@@ -39,7 +36,7 @@ export function HomeClient({data}) {
             storyMedia={mediaCollection.items[0].url}
           />
         </section>
-       <section className="grid grid-cols-1 justify-items-start pr-6 pb-6 flex-auto">
+       <section className="grid grid-cols-1 p-2 flex-auto justify-center">
         <div>
           <h2 className="text-[40px] leading-[1.2] text-(--dark-gold) font-black">Stories</h2>
           <h3 className="text-xl text-(--dark-green) font-bold mb-2">Select A Story</h3>
@@ -47,7 +44,7 @@ export function HomeClient({data}) {
              <div key={story.title}> 
               <button
                 onClick={() => handleOpenStory(story)}
-                className="text-sm font-bold mb-2 bg-(--bright-blue) hover:bg-(--dark-gold) text-white py-2 px-4 rounded">
+                className="text-sm w-full font-bold mb-2 bg-(--bright-blue) hover:bg-(--dark-gold) text-white py-2 px-4 rounded">
                 {story.title}
               </button>
             </div>
