@@ -33,24 +33,8 @@ describe('HomeClient', () => {
       ],
     };
 
-    const mockSetSelectedStory = jest.fn();
-
-    jest.spyOn(React, 'useState').mockImplementation((initialValue) => [
-      initialValue,
-      mockSetSelectedStory,
-    ]);
-
-    // Mock handlers
-    // const mockHandleOpenStory = jest.fn((story) => {
-    //   mockSetSelectedStory(story);
-    // });
-
-    // const mockHandleCloseStory = jest.fn(() => {
-    //   mockSetSelectedStory(null);
-    // });
-
     render(<HomeClient data={mockData} />);
   
-    // expect(screen.getByText('Welcome to LCCMR')).toBeInTheDocument();
+    expect(screen.getByText('Welcome to LCCMR')).toBeInTheDocument();
   });
 });
