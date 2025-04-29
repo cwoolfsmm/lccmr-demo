@@ -1,17 +1,17 @@
-// Server Home Component - handles data fetching and passes data to the client component
-import { getAllEntries } from "../../lib/graphql";
-import { HomeClient } from "./components/HomeClient";
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import { HomeClient } from './components/HomeClient';
 
-export default async function Home() {
-  const data = await getAllEntries();
-  if (!data) {
-    // Placeholder!
-    return <div>Loading...</div>; 
-  }
+describe('HomeClient', () => {
+  it('renders a heading', () => {
+    const mockData = {
+      header: [{ headerTitle: 'Welcome to the Home Page', logo: { url: '/logo.png' } }],
+      story: [],
+      home: [{ featureStory: { title: 'Feature Story', subtitle: 'Subtitle', content: 'Content', mediaCollection: { items: [{ url: '/image.png' }] } } }],
+    };
 
-  return (
-    <HomeClient
-      data={data}
-    />
-  );
-}
+    render(<HomeClient data={mockData} />);
+
+    expect(screen.getByText('Welcome to the Home Page')).toBeInTheDocument();
+  });
+});
