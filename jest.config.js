@@ -3,49 +3,24 @@
  * https://jestjs.io/docs/configuration
  */
 
-/** @type {import('jest').Config} */
-const config = {
-  dir: './src/app',
+const nextJest = require('next/jest');
 
-  // Automatically clear mock calls, instances, contexts and results before every test
+const createJestConfig = nextJest({
+   dir: './',
+});
+
+const jestConfig = {
   clearMocks: true,
-
-  // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
-
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
-
-  // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
-
-  // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
-
-
-  // An array of file extensions your modules use
-  moduleFileExtensions: [
-    "js",
-    "mjs",
-    "cjs",
-    "jsx",
-    "ts",
-    "tsx",
-    "json",
-    "node"
-  ],
-
   moduleNameMapper: {
-    //  "@/*": ["./src/*"] from jsconfig.json
-    '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/(.*)$': '<rootDir>/src/$1', // Support for absolute imports
   },
-
-  testEnvironment: "jest-environment-jsdom", // Use jsdom for testing React components
+  testEnvironment: "jest-environment-jsdom", // Use jsdom for React components
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'], // Setup Testing Library
-
   transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": "babel-jest", // Use babel-jest to transform JSX
+    "^.+\\.(js|jsx|ts|tsx)$": "@swc/jest", // Use SWC for transforming files
   },
 };
 
-module.exports = config;
+module.exports = createJestConfig(jestConfig);
